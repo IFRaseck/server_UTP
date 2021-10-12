@@ -1,5 +1,5 @@
 var express = require('express')
-var Producto = require('../models/Productos')
+var Producto = require('../models/producto')
 const router = express.Router();
 
 
@@ -83,7 +83,7 @@ router.put('/productos/:id', async(req, res) => {
 
 //SERVICIOS
 
-var Servicio = require('../models/servicios') 
+var Servicio = require('../models/servicio') 
 
 //Agregar un servicio
 
@@ -165,7 +165,7 @@ router.put('/servicios/:id', async(req, res) => {
 
 //NOTICIAS
 
-var Noticia = require('../models/noticias') 
+var Noticia = require('../models/noticia') 
 
 //Agregar una noticia
 
@@ -247,7 +247,7 @@ router.put('/noticias/:id', async(req, res) => {
 
 //USUARIO
 
-var Usuario = require('../models/usuarios')
+var Usuario = require('../models/usuario')
 
 //Agregar un producto
 
