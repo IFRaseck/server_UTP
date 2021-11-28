@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const pedidoSchema = new Schema({
     nombre: {type: String, required:[true, 'Nombre Obligatorio']},
-    telefono: Int16Array,
+    telefono: String,
     tipo: String,
     cantidad: String,
     date: {type: Date, default:Date.now},
