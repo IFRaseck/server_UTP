@@ -327,6 +327,84 @@ router.put('/usuarios/:id', async(req, res) => {
     }
 });
 
+//Agregar un pedido
+
+router.post('/nuevo-pedido', async(req, res) => {
+    const body = req.body;
+    try {
+        const pedidoDB = await Pedido.create(body);
+        res.status(200).json(pedidoDB);
+
+    } catch (error) {
+        return res.status(500).json({
+            mensaje: 'ha ocurrido un error',
+            error
+        })
+    }
+});
+
+router.get('/pedidos/:id', async(req, res) => {
+    const _id = req.params.id;
+    try {
+        const pedidoDB = await Pedido.findOne({_id});
+        res.json(pedidoDB);
+
+    } catch (error) {
+        return res.status(500).json({
+            mensaje: 'ha ocurrido un error',
+            error
+        })
+    }
+});
+
+router.get('/pedidos', async(req, res) => {
+
+    try {
+        const pedidoDB = await Pedido.find();
+        res.json(pedidoDB);
+
+    } catch (error) {
+        return res.status(500).json({
+            mensaje: 'ha ocurrido un error',
+            error
+        })
+    }
+});
+
+router.delete('/pedidos/:id', async(req, res) => {
+    const _id = req.params.id;
+    try {
+        const pedidoDB = await Pedido.findByIdAndDelete({_id});
+        if(!Pedido){
+            return res.status(400).json({
+                mensaje: 'No se encontro el id del producto', error })
+        }
+        res.json(pedidoDB);
+        
+    } catch (error) {
+        return res.status(500).json({
+            mensaje: 'ha ocurrido un error',
+            error
+        })
+    }
+});
+
+router.put('/pedidos/:id', async(req, res) => {
+    const _id = req.params.id;
+    const body = req.body;
+    try {
+        const pedidoDB = await Pedido.findByIdAndUpdate(
+            _id, body, {new: true});
+            res.json(pedidoDB);
+        
+    } catch (error) {
+        return res.status(500).json({
+            mensaje: 'ha ocurrido un error',
+            error
+        })
+    }
+});
+
 
 
 module.exports = router;
