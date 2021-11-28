@@ -1,5 +1,6 @@
 var express = require('express')
 var Producto = require('../models/producto')
+var Pedido = require('../models/pedido') 
 const router = express.Router();
 
 
