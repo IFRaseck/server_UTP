@@ -1,6 +1,5 @@
 var express = require('express')
 var Producto = require('../models/producto')
-var Pedido = require('../models/pedido') 
 const router = express.Router();
 
 
@@ -329,6 +328,8 @@ router.put('/usuarios/:id', async(req, res) => {
 });
 
 //Agregar un pedido
+
+var Pedido = require('../models/pedido') 
 
 router.post('/nuevo-pedido', async(req, res) => {
     const body = req.body;
