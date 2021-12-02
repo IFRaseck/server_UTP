@@ -17,7 +17,7 @@ const pedidoSchema = new Schema({
         numDocumento: '',
         direccion: '',
         numeroCasa: '',
-        barrio: Barrio,
+        barrio: "",
         telefono: '',
         fechaEntrega: '',
         }, 
